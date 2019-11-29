@@ -31,7 +31,7 @@ function shifter_cache_helper() {
     $time = file_get_contents( $bootup, true );
     
     // If the current time is newer.
-    if ( get_option('shifter_bootup_time') < $time ) {
+    if ( $time > get_option('shifter_bootup_time') ) {
       
       // Update time.
       update_option('shifter_bootup_time', $time);
