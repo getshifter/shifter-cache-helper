@@ -63,7 +63,7 @@ function shifter_clear_plugin_cache() {
    * @since 2.2.6.1
    */
   if (class_exists('\FLBuilderModel')) {
-    FLBuilderModel::delete_asset_cache_for_all_posts();
+    \FLBuilderModel::delete_asset_cache_for_all_posts();
   }
   
 }
