@@ -42,7 +42,6 @@ function shifter_cache_helper() {
   }
 }
 
-
 /**
  * Shifter Clear Plugin Cache.
  * Clear the cache of commonly used plugins.
@@ -51,10 +50,22 @@ function shifter_clear_plugin_cache() {
 
   /**
    * Autoptomize
+   * @link  https://wordpress.org/plugins/autoptimize/
+   * @since 2.5.1
    */
   if (class_exists('\autoptimizeCache')) {
     \autoptimizeCache::clearall();
   }
+
+  /**
+   * Beaver Builder Plugin
+   * @link  https://www.wpbeaverbuilder.com
+   * @since 2.2.6.1
+   */
+  if (class_exists('\FLBuilderModel')) {
+    FLBuilderModel::delete_asset_cache_for_all_posts();
+  }
+  
 }
 
 add_action('init', 'shifter_cache_helper');
